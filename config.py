@@ -53,6 +53,13 @@ CONFIG = [
     },
     {
         'id': 6,
+        'name': 'hats',
+        'directory': 'HATS',
+        'required': True,
+        'rarity_weights': None,
+    },
+    {
+        'id': 7,
         'name': 'elements',
         'directory': 'ELEMENTS',
         'required': True,

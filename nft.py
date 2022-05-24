@@ -1,6 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
+
+##NOTES
+
+##everyone has at least; no two share all but one different elements
+##at least two elements are different for every possible combination
+## get us down to 10k instead of 100k
+
 # Import required libraries
 from PIL import Image
 import pandas as pd
