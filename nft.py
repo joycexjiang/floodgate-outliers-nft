@@ -63,7 +63,7 @@ def get_weighted_rarities(arr):
 # Generate a single image given an array of filepaths representing layers
 def generate_single_image(filepaths, output_filename=None):
 
-    print("\n generating "+ output_filename)
+    # print("\n generating "+ output_filename)
     
     # Treat the first layer as the background
     bg = Image.open(os.path.join('assets', filepaths[0]))
@@ -157,19 +157,18 @@ def generate_images(edition, count, drop_dup=True):
     op_path = os.path.join('output', 'edition ' + str(edition), 'images')
 
     # Will require this to name final images as 000, 001,...
-    # zfill_count = len(str(count - 1))         
-    # zfill_count = 0 # Hardcode this in so files don't have leading 0's
+    zfill_count = len(str(count - 1))         
     
     # Create output directory if it doesn't exist
     if not os.path.exists(op_path):
         os.makedirs(op_path)
       
     # Create the images
-    for n in progressbar.progressbar(range(count)):
+    for n in progressbar.progressbar(range(1, count+1)):
         
         # Set image name
-        image_name = str(n) + '.png'
-        print("/n image_name: " + image_name)
+        image_name = str(n).zfill(zfill_count) + '.png'
+        # print("/n image_name: " + image_name)
         
         # Get a random set of valid traits based on rarity weights
         trait_sets, trait_paths = generate_trait_set_from_config()
@@ -189,20 +188,22 @@ def generate_images(edition, count, drop_dup=True):
     print("Generated %i images, %i are distinct" % (count, rarity_table.shape[0]))
     
     if drop_dup:
-        print(" \n dropping duplicates")
+
         # Get list of duplicate images
         img_tb_removed = sorted(list(set(range(count)) - set(rarity_table.index)))
+        print("img_tb_removed = " + str(len(img_tb_removed)))
 
         # Remove duplicate images
         print("Removing %i images..." % (len(img_tb_removed)))
 
-        #op_path = os.path.join('output', 'edition ' + str(edition))
+        # op_path = os.path.join('output', 'edition ' + str(edition))
         for i in img_tb_removed:
-            os.remove(os.path.join(op_path, str(i) + '.png'))
+            print(" \n dropping duplicates")
+            os.remove(os.path.join(op_path, str(i).zfill(zfill_count) + '.png'))
 
         # Rename images such that it is sequentialluy numbered
         for idx, img in enumerate(sorted(os.listdir(op_path))):
-            os.rename(os.path.join(op_path, img), os.path.join(op_path, str(idx) + '.png'))
+            os.rename(os.path.join(op_path, img), os.path.join(op_path, str(idx+1) + '.png'))
     
     
     # Modify rarity table to reflect removals
