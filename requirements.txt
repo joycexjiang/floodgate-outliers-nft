@@ -1,0 +1,4 @@
+Pillow
+pandas
+numpy
+progressbar2
