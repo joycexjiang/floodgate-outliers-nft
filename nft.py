@@ -62,6 +62,8 @@ def get_weighted_rarities(arr):
 
 # Generate a single image given an array of filepaths representing layers
 def generate_single_image(filepaths, output_filename=None):
+
+    print("\n generating "+ output_filename)
     
     # Treat the first layer as the background
     bg = Image.open(os.path.join('assets', filepaths[0]))
@@ -76,6 +78,7 @@ def generate_single_image(filepaths, output_filename=None):
     # Save the final image into desired location
     if output_filename is not None:
         bg.save(output_filename)
+        print("\n saved " + output_filename)
     else:
         # If output filename is not specified, use timestamp to name the image and save it in output/single_images
         if not os.path.exists(os.path.join('output', 'single_images')):
@@ -186,6 +189,7 @@ def generate_images(edition, count, drop_dup=True):
     print("Generated %i images, %i are distinct" % (count, rarity_table.shape[0]))
     
     if drop_dup:
+        print(" \n dropping duplicates")
         # Get list of duplicate images
         img_tb_removed = sorted(list(set(range(count)) - set(rarity_table.index)))
 
