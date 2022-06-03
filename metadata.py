@@ -14,7 +14,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # Base metadata. MUST BE EDITED.
-BASE_IMAGE_URL = "ipfs://<-- Your CID Code-->"
+BASE_IMAGE_URL = "ipfs://test"
 BASE_NAME = ""
 
 BASE_JSON = {
@@ -91,10 +91,10 @@ def main():
         item_json = deepcopy(BASE_JSON)
         
         # Append number to base name
-        item_json['name'] = item_json['name'] + str(idx)
+        item_json['name'] = item_json['name'] + str(idx+1)
 
         # Append image PNG file name to base image path
-        item_json['image'] = item_json['image'] + '/' + str(idx).zfill(zfill_count) + '.png'
+        item_json['image'] = item_json['image'] + '/' + str(idx+1) + '.png'
         
         # Convert pandas series to dictionary
         attr_dict = dict(row)
@@ -106,7 +106,7 @@ def main():
                 item_json['attributes'].append({ 'trait_type': attr, 'value': attr_dict[attr] })
         
         # Write file to json folder
-        item_json_path = os.path.join(json_path, str(idx))
+        item_json_path = os.path.join(json_path, str(idx+1))
         with open(item_json_path, 'w') as f:
             json.dump(item_json, f)
 

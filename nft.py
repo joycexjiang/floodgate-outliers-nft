@@ -78,7 +78,6 @@ def generate_single_image(filepaths, output_filename=None):
     # Save the final image into desired location
     if output_filename is not None:
         bg.save(output_filename)
-        print("\n saved " + output_filename)
     else:
         # If output filename is not specified, use timestamp to name the image and save it in output/single_images
         if not os.path.exists(os.path.join('output', 'single_images')):
@@ -209,6 +208,7 @@ def generate_images(edition, count, drop_dup=True):
     # Modify rarity table to reflect removals
     rarity_table = rarity_table.reset_index()
     rarity_table = rarity_table.drop('index', axis=1)
+    rarity_table.index = np.arange(1, len(rarity_table)+1)
     return rarity_table
 
 # Main function. Point of entry
