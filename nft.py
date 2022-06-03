@@ -163,7 +163,7 @@ def generate_images(edition, count, drop_dup=True):
         os.makedirs(op_path)
       
     # Create the images
-    for n in progressbar.progressbar(range(1, count+1)):
+    for n in progressbar.progressbar(range(count)):
         
         # Set image name
         image_name = str(n).zfill(zfill_count) + '.png'
@@ -202,13 +202,12 @@ def generate_images(edition, count, drop_dup=True):
 
         # Rename images such that it is sequentialluy numbered
         for idx, img in enumerate(sorted(os.listdir(op_path))):
-            os.rename(os.path.join(op_path, img), os.path.join(op_path, str(idx+1) + '.png'))
+            os.rename(os.path.join(op_path, img), os.path.join(op_path, str(idx) + '.png'))
     
     
     # Modify rarity table to reflect removals
     rarity_table = rarity_table.reset_index()
     rarity_table = rarity_table.drop('index', axis=1)
-    rarity_table.index = np.arange(1, len(rarity_table)+1)
     return rarity_table
 
 # Main function. Point of entry

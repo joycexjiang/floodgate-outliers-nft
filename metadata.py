@@ -14,12 +14,12 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # Base metadata. MUST BE EDITED.
-BASE_IMAGE_URL = "ipfs://test"
-BASE_NAME = ""
+BASE_IMAGE_URL = "ipfs://QmbZpPnAbRpj7M2kBRNjufCQLJ5QE1MXbNjTUNJg3MHJ6v"
+BASE_NAME = "Baby Thunder Lizard #"
 
 BASE_JSON = {
     "name": BASE_NAME,
-    "description": "",
+    "description": "The Baby Thunder Lizards are here to build the future of crypto!",
     "image": BASE_IMAGE_URL,
     "attributes": [],
 }
@@ -91,10 +91,10 @@ def main():
         item_json = deepcopy(BASE_JSON)
         
         # Append number to base name
-        item_json['name'] = item_json['name'] + str(idx+1)
+        item_json['name'] = item_json['name'] + str(idx)
 
         # Append image PNG file name to base image path
-        item_json['image'] = item_json['image'] + '/' + str(idx+1) + '.png'
+        item_json['image'] = item_json['image'] + '/' + str(idx) + '.png'
         
         # Convert pandas series to dictionary
         attr_dict = dict(row)
@@ -106,7 +106,7 @@ def main():
                 item_json['attributes'].append({ 'trait_type': attr, 'value': attr_dict[attr] })
         
         # Write file to json folder
-        item_json_path = os.path.join(json_path, str(idx+1))
+        item_json_path = os.path.join(json_path, str(idx))
         with open(item_json_path, 'w') as f:
             json.dump(item_json, f)
 
