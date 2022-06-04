@@ -14,7 +14,7 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
 # Base metadata. MUST BE EDITED.
-BASE_IMAGE_URL = "ipfs://QmbZpPnAbRpj7M2kBRNjufCQLJ5QE1MXbNjTUNJg3MHJ6v"
+BASE_IMAGE_URL = "ipfs://bafybeigqkrpkcl4xc5qyrq5mcxsm3ffkeytamhoh2rpgo4fs45qbxnfkiq"
 BASE_NAME = "Baby Thunder Lizard #"
 
 BASE_JSON = {
