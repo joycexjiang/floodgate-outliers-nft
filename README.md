@@ -7,7 +7,9 @@ Objective: creating generative NFTs for the [Outliers](https://www.outliers.buil
 
 To create images for the NFTS, run `nft.py` based on the assets folder!
 
-View the ReactJS minting web page [here](https://github.com/joycexjiang/outliersnft-web).
+View the ReactJS Minting webpage [here](https://github.com/joycexjiang/outliersnft-web).
+
+<img alt="Screenshot of Minting webpage" src="https://freight.cargo.site/t/original/i/a3c549cb74bd2d1fee6902386871a96b5f358dcf7efe74e957d7c3834da10aee/Screen-Shot-2022-07-12-at-10.39.14-AM.png">
 
 
 ## Overview
