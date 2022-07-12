@@ -7,7 +7,8 @@ Objective: creating generative NFTs for the [Outliers](https://www.outliers.buil
 
 To create images for the NFTS, run `nft.py` based on the assets folder!
 
-View the ReactJS minting web page [here](https://github.com/joycexjiang/outliersnft-web)
+View the ReactJS minting web page [here](https://github.com/joycexjiang/outliersnft-web).
+
 
 ## Overview
 Outliers is a 10-week, summer program to empower exceptional student builders in Crypto and Web3 led by Ann Miura-Ko. Through curriculum and technical projects, Outliers equips students from across the country with the resources, knowledge, and community necessary to build and scale a successful Web3 venture. Cohort members will learn and build alongside talented peers, be matched with expert mentors, and have the opportunity to interact with world-class guest speakers. The community is backed by Floodgate, a top-tier seed-stage venture capital firm located in Silicon Valley with a track record of early investments in companies such as Lyft, Twitch, and Twitter.
